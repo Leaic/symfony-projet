@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer les Option{% endblock %}
+
+{% block body %}
+    <h1>Editer les Option</h1>
+
+    {{ include('admin/admin_option/_form.html.twig', {'button_label': 'changer'}) }}
+
+    <a href="{{ path('app_admin_admin_option_index') }}">revenir</a>
+
+    {{ include('admin/admin_option/_delete_form.html.twig') }}
+{% endblock %}

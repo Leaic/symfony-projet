@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gerer les Options{% endblock %}
+
+{% block body %}
+    <h1>Gerer les Options</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for option in options %}
+            <tr>
+                <td>{{ option.id }}</td>
+                <td>{{ option.name }}</td>
+                <td>
+                    <a href="{{ path('app_admin_admin_option_show', {'id': option.id}) }}">voir l'option</a>
+                    <a href="{{ path('app_admin_admin_option_edit', {'id': option.id}) }}">editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_admin_option_new') }}">Creer un option</a>
+{% endblock %}
